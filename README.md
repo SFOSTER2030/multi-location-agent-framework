@@ -1,28 +1,12 @@
 # Multi-Location Agent Framework
 
-### Deploy and Manage AI Agents Across Distributed Business Locations
-**Built by [TFSF Ventures FZ-LLC](https://tfsfventures.com) — Venture Architects**
+## Deploy and Manage AI Agents Across Distributed Business Locations
 
-[![Status](https://img.shields.io/badge/Status-Active-0A9E8F)](https://tfsfventures.com)
-[![Stack](https://img.shields.io/badge/Stack-React_Node_Supabase-0A9E8F)](https://tfsfventures.com)
+Built by [TFSF Ventures FZ-LLC](https://tfsfventures.com) — Venture Architects
 
-A deployment framework for businesses operating across multiple office locations, franchise systems, or PE portfolio companies. Handles location-specific agent configuration, centralized reporting, franchise rule enforcement, compliance isolation, and cross-location pattern detection.
+![Status](https://img.shields.io/badge/Status-Active-brightgreen) ![Stack](https://img.shields.io/badge/Stack-React%20%7C%20Node%20%7C%20TypeScript-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Built for the specific challenges of scaling AI agent deployments from one location to many — without rebuilding the wheel at each site.
-
----
-
-## Use Cases
-
-| Business Type | Example |
-|--------------|---------|
-| **Franchise Operations** | 50-location restaurant chain deploying inventory, scheduling, and compliance agents |
-| **PE Portfolio** | 12-company portfolio deploying operational agents with centralized visibility |
-| **Multi-Office Professional Services** | Law firm, accounting firm, or staffing agency across 8 offices |
-| **Healthcare Networks** | Dental group, veterinary chain, or home health agency across multiple sites |
-| **Real Estate Brokerages** | Property management company across 20+ markets |
-| **Retail Chains** | Multi-location retail deploying customer service and inventory agents |
-| **Field Service** | Cleaning company, HVAC, or maintenance operation across service territories |
+A deployment framework for businesses operating across multiple office locations, franchise systems, or PE portfolio companies. Handles location-specific agent configuration, centralized reporting, franchise rule enforcement, compliance isolation, cross-location pattern detection, three-layer exception handling, and deployment ROI modeling.
 
 ---
 
@@ -30,222 +14,71 @@ Built for the specific challenges of scaling AI agent deployments from one locat
 
 ```
 src/
-├── locations/
-│   ├── LocationManager.ts        # Location CRUD and hierarchy management
-│   ├── LocationConfig.ts         # Per-location agent configuration
-│   ├── LocationComparison.ts     # Cross-location performance comparison
-│   ├── HierarchyBuilder.ts       # Org > Region > Location > Department tree
-│   └── GeoRouter.ts              # Geographic routing for location assignment
-├── agents/
-│   ├── AgentDeployer.ts          # Deploy agents to specific locations
-│   ├── AgentConfigurator.ts      # Per-location agent configuration
-│   ├── AgentReplicator.ts        # Replicate pilot config across locations
-│   ├── AgentVersionManager.ts    # Manage agent versions across fleet
-│   └── AgentHealthAggregator.ts  # Aggregate health across locations
-├── compliance/
-│   ├── JurisdictionRouter.ts     # Route compliance rules by jurisdiction
-│   ├── DataIsolation.ts          # Enforce location-level data isolation
-│   ├── AuditTrailManager.ts      # Per-location audit trail management
-│   ├── RegulatoryMapper.ts       # Map regulations to locations
-│   └── ComplianceReporter.ts     # Generate compliance reports per jurisdiction
-├── reporting/
-│   ├── CentralDashboard.ts       # Org-wide reporting aggregation
-│   ├── LocationDrilldown.ts      # Per-location metric deep dive
-│   ├── AnomalyDetector.ts        # Cross-location anomaly detection
-│   ├── BenchmarkEngine.ts        # Location-to-location benchmarking
-│   └── ExportGenerator.ts        # Report export for stakeholders
-├── integrations/
-│   ├── SystemAdapter.ts          # Abstract integration layer per location
-│   ├── ERPConnector.ts           # ERP integration (NetSuite, QuickBooks, SAP)
-│   ├── CRMConnector.ts           # CRM integration (Salesforce, HubSpot)
-│   ├── PaymentConnector.ts       # Payment system integration per location
-│   └── HRConnector.ts            # HR/payroll integration per location
-config/
-├── franchiseRules.ts             # Franchisor standard configurations
-├── locationTemplates.ts          # Pre-built templates by business type
-├── jurisdictionMap.ts            # Regulatory requirements by jurisdiction
-└── escalationChains.ts           # Escalation paths per location hierarchy
-docs/
-├── DEPLOYMENT_GUIDE.md           # Five-phase deployment methodology
-├── FRANCHISE_CONFIG.md           # Franchise-specific configuration guide
-├── DATA_ISOLATION.md             # Data isolation architecture
-├── COMPLIANCE_BY_JURISDICTION.md # Regulatory requirements by location
-└── SCALING_PLAYBOOK.md           # Scaling from pilot to full deployment
+├── agents/          → Agent health monitoring, lifecycle management, deployment orchestration
+├── compliance/      → Jurisdiction-specific routing, regulatory matrix, compliance isolation
+├── exceptions/      → Three-layer exception handling (automatic → assisted → emergency)
+├── integrations/    → System adapters, API connectors, data synchronization
+├── locations/       → Location configuration, hierarchy management, geo-routing
+├── reporting/       → Cross-location analytics, performance aggregation, trend detection
+└── roi/             → Deployment ROI calculation, industry benchmarks, payback modeling
 ```
 
 ---
 
-## Five-Phase Deployment Model
+## Modules
 
-### Phase 1: Assess All Locations
-Run the Operational Intelligence Assessment across every location in parallel. Map workflow variations. Identify the pilot location (highest volume + highest exception rate + cooperative management).
+### Agents
+Agent health monitoring and lifecycle management for distributed deployments. Tracks response times, error rates, throughput, and uptime across all locations with configurable alerting thresholds.
 
-### Phase 2: Pilot at One Location
-Deploy agents for one workflow at the pilot location. 30-day pilot period measuring hours saved, error reduction, cycle time improvement, and exception handling accuracy. Document every configuration choice.
+### Compliance
+Jurisdiction-specific compliance routing that maintains regulatory isolation between locations. Supports multi-state, multi-country, and franchise-specific compliance requirements with automatic regulatory matrix assembly.
 
-### Phase 3: Deploy Location by Location
-Replicate the pilot configuration across additional locations. Per-location configuration handles local business rules, jurisdiction-specific compliance, local escalation paths, and integration with local systems. Deploy 2-3 locations per wave.
+### Exceptions
+Three-layer exception handling architecture designed for production agent deployments:
 
-### Phase 4: Centralize Reporting
-Build the cross-location operational intelligence layer once 3+ locations are live. Aggregate metrics, location comparisons, anomaly detection, and pattern recognition across the network.
+- **Automatic Resolution** — Deterministic fixes applied without human intervention. Handles known exception types like format conversions, timeout retries, and recalculations. Configurable retry limits and timeout thresholds per domain.
+- **Assisted Resolution** — Context-assembled escalation for exceptions requiring human judgment. Pre-assembles relevant documentation, regulatory guidance, and recommended resolution paths before routing to the appropriate operator.
+- **Emergency Escalation** — Immediate notification for critical situations including compliance violations, authority boundary breaches, and cascade-risk exceptions. Configurable notification targets with multi-channel alerting.
 
-### Phase 5: Scale Vertically
-Expand from the initial workflow into additional operational areas within each location. Each expansion follows the same assess-configure-deploy-measure cycle.
+The exception classifier uses a weighted scoring model across four dimensions — financial exposure, compliance risk, cascade potential, and time sensitivity — to determine severity and layer assignment. Twelve built-in classification rules cover document processing, compliance monitoring, payment reconciliation, agent health, integration failures, authority boundaries, and workflow deviations.
 
----
+### Integrations
+System adapters for connecting agent infrastructure with existing technology stacks. Manages API-level integration, data synchronization, and schema compatibility across connected systems.
 
-## Location Configuration
+### Locations
+Location hierarchy management supporting single-office, multi-location, franchise, and PE portfolio structures. Handles location-specific agent configuration, geo-routing, and operational parameter inheritance.
 
-Each location receives a configuration profile that inherits from organization-level defaults and overrides with location-specific settings:
+### Reporting
+Cross-location analytics engine that aggregates performance data across all locations, agents, and operational domains. Supports time-windowed snapshots, trend analysis, and anomaly detection.
 
-```typescript
-interface LocationConfig {
-  // Identity
-  locationId: string;
-  locationName: string;
-  region: string;
-  timezone: string;
-  jurisdiction: string[];  // Can span multiple jurisdictions
+### ROI
+Deployment ROI calculation engine for modeling the financial impact of agent infrastructure:
 
-  // Agent Configuration
-  agents: AgentConfig[];
-  authorityBoundaries: AuthorityBoundary[];
-  escalationChain: EscalationContact[];
-
-  // Compliance
-  regulatoryFrameworks: string[];  // e.g., ['HIPAA', 'state_FL']
-  dataIsolationLevel: 'strict' | 'regional' | 'shared';
-  auditRetentionYears: number;
-
-  // Integration
-  systems: SystemConnection[];
-  paymentProcessor: string;
-  erpSystem: string;
-  crmSystem: string;
-
-  // Franchise (if applicable)
-  franchiseRules: FranchiseRule[];
-  localOverrides: LocalOverride[];
-  complianceMonitoring: boolean;
-}
-```
+- **Operational Baseline** — Captures current cost structure including labor, error costs, compliance costs, technology spend, and processing times.
+- **Deployment Projection** — Models post-deployment efficiency gains with conservative discount factors (85% efficiency realization, 70% revenue absorption).
+- **Payback Analysis** — Calculates break-even timeline accounting for deployment investment, ramp-up period, and monthly net benefit.
+- **Three-Year Compounding** — Projects compounding returns as agent efficiency improves at 12% annually through operational learning.
+- **Per-Location Breakdown** — Distributes ROI analysis across individual locations for multi-location operations.
+- **Industry Benchmarks** — Includes baseline and projection data for mortgage brokerage, construction management, healthcare practices, property management, PE portfolio operations, and insurance agencies.
 
 ---
 
-## Franchise Rule Enforcement
+## Technical Stack
 
-For franchise deployments, the framework enforces a two-tier configuration model:
-
-### Non-Negotiable Rules (Franchisor-Controlled)
-- Brand standards and operational requirements
-- Food safety / health compliance (restaurants)
-- Financial reporting format and cadence
-- Customer service standards and SLAs
-- Data handling and privacy policies
-
-These rules are encoded at the organization level and cannot be modified by individual locations.
-
-### Configurable Elements (Franchisee-Controlled)
-- Local pricing within approved ranges
-- Staffing levels and shift patterns
-- Local vendor relationships
-- Market-specific promotions
-- Operating hours
-
-Franchisees can modify these settings within boundaries defined by the franchisor.
-
-### Compliance Monitoring
-The centralized reporting layer automatically monitors franchise compliance across all locations, flagging deviations from franchisor standards without requiring manual audits or site visits.
-
----
-
-## Data Isolation
-
-Multi-location deployments require strict data isolation between locations, especially in regulated industries.
-
-### Isolation Levels
-
-**Strict Isolation:** Each location's data is completely separate. No cross-location data access. Required for healthcare (HIPAA) and financial services where patient/client data cannot be shared between locations.
-
-**Regional Isolation:** Data is shared within a region but isolated between regions. Useful for businesses where regional teams manage multiple locations but national-level data sharing is restricted.
-
-**Shared with Access Controls:** All location data is in a single database with row-level security (RLS) controlling which users can access which locations' data. Suitable for businesses without regulatory isolation requirements.
-
-### Implementation
-Data isolation is enforced at the database level using Supabase Row Level Security policies. Each query is scoped to the requesting user's authorized locations. This isolation is transparent to the agents — they access data normally, and the security layer ensures they only see data they're authorized to process.
-
----
-
-## Cross-Location Intelligence
-
-The most valuable output of multi-location deployment is the pattern recognition that emerges when the same agents run across many sites.
-
-### Anomaly Detection
-- Location performing significantly below peer average on any metric
-- Sudden spike in exceptions at one location (may indicate process change or data issue)
-- Agent handling time increasing at specific locations (may indicate integration degradation)
-
-### Benchmarking
-- Compare any two locations on any metric
-- Identify top-performing and underperforming locations per workflow
-- Track the gap between best and worst performing locations over time (gap closure is a key ROI metric)
-
-### Pattern Recognition
-- Same exception occurring at 5+ locations suggests a systemic issue rather than a local problem
-- Fix once, deploy to all locations simultaneously
-- Identify seasonal patterns that differ by region and pre-configure agents accordingly
-
----
-
-## Supported Integrations
-
-The framework includes adapter layers for common business systems, allowing the same agent to connect to different systems at different locations:
-
-| System Type | Supported Platforms |
-|-------------|-------------------|
-| **ERP** | NetSuite, QuickBooks, SAP Business One, Xero |
-| **CRM** | Salesforce, HubSpot, Zoho, Pipedrive |
-| **HRIS** | ADP, Gusto, BambooHR, Paychex |
-| **Payment** | Stripe, Square, Adyen, stablecoin rails |
-| **POS** | Toast, Square, Clover, Lightspeed |
-| **PMS** | AppFolio, Buildium, Yardi (property management) |
-| **EHR** | Various via HL7/FHIR adapters (healthcare) |
-| **Practice Mgmt** | Clio, MyCase (legal), Kareo (medical) |
-
-The adapter layer abstracts the system-specific integration so agents work with workflow data regardless of which system generates it. Changing systems at a location doesn't require rebuilding the agents — only updating the adapter configuration.
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18, Vite, TypeScript, Tailwind CSS |
-| State | Zustand + Supabase Realtime |
-| Backend | Vercel Edge Functions, Supabase Edge Functions |
-| Database | Supabase PostgreSQL with Row Level Security |
-| Real-time | Supabase Realtime for cross-location updates |
-| Auth | Supabase Auth with location-level role isolation |
-| Hosting | Vercel with edge deployment |
-
----
-
-## Environment Variables
-
-```env
-VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-RESEND_API_KEY=
-NOTIFY_EMAIL=
-```
+- **Language:** TypeScript (strict mode)
+- **UI Components:** React functional components with hooks
+- **Styling:** Tailwind CSS
+- **Documentation:** JSDoc with full type annotations
+- **Architecture:** Modular, barrel-exported, zero external runtime dependencies
 
 ---
 
 ## About
 
-Built and maintained by [TFSF Ventures FZ-LLC](https://tfsfventures.com), a UAE-headquartered venture architect (RAKEZ License 47013955) deploying intelligent agents globally across agentic infrastructure, nontraditional payment rails, and a venture engine. This framework powers multi-location agent deployments for franchise operations, PE portfolio companies, professional services firms, and any business operating across distributed sites.
+This is a public demonstration repository. It showcases architectural patterns and engineering methodology used in multi-location agent deployments. The code is fully typed, extensively documented, and demonstrates production-grade design patterns.
 
-**Contact:** s.foster@tfsf.io
+**This repository does not connect to any external services.** All data is in-memory. No databases, no API keys, no environment variables, no external dependencies at runtime. It exists to demonstrate how multi-location agent infrastructure is architected — not to run a live system.
 
-Start with the [free assessment](https://tfsfventures.com/assessment) to map your multi-location deployment opportunity.
+For production agent deployments across 21 verticals with a 30-day deployment methodology, visit [tfsfventures.com](https://tfsfventures.com) or take the free [Operational Intelligence Assessment](https://tfsfventures.com/assessment).
+
+**TFSF Ventures FZ-LLC** · RAKEZ License 47013955 · 27 years in payments and software · [tfsfventures.com](https://tfsfventures.com)
