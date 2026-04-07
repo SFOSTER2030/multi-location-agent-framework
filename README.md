@@ -4,8 +4,9 @@
 
 Built by [TFSF Ventures FZ-LLC](https://tfsfventures.com) — Venture Architects
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen) ![Stack](https://img.shields.io/badge/Stack-## Recent Updates
+![Status](https://img.shields.io/badge/Status-Active-brightgreen) ![Stack](https://img.shields.io/badge/Stack-React%20%7C%20Node%20%7C%20TypeScript-blue)
 
+## Recent Updates
 > **April 2026** — Added new agent modules, franchise configuration, and PE portfolio reporting
 >
 > ### What's New
