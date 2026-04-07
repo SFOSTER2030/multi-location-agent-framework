@@ -4,7 +4,22 @@
 
 Built by [TFSF Ventures FZ-LLC](https://tfsfventures.com) — Venture Architects
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen) ![Stack](https://img.shields.io/badge/Stack-React%20%7C%20Node%20%7C%20TypeScript-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen) ![Stack](https://img.shields.io/badge/Stack-## Recent Updates
+
+> **April 2026** — Added new agent modules, franchise configuration, and PE portfolio reporting
+>
+> ### What's New
+> - `src/agents/DocumentAgent.ts` — OCR processing, structured data extraction, and document classification agent
+> - - `src/locations/FranchiseConfig.ts` — Franchise rule enforcement, compliance isolation, and multi-unit deployment configuration
+>   - - `src/reporting/PePortfolioDashboard.ts` — PE portfolio cross-company analytics and GP/LP reporting dashboard
+>     - - `src/integrations/BillingAdapter.ts` — Invoice verification, rate discrepancy detection, and engagement letter matching
+>       -
+>       - **[Take the free Operational Intelligence Assessment →](https://tfsfventures.com/assessment)**
+>       - **[TFSF Ventures FZ-LLC](https://tfsfventures.com)** — AI Agent Deployment | RAKEZ License 47013955
+>       -
+>       - ---
+>       -
+>       - React%20%7C%20Node%20%7C%20TypeScript-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 A deployment framework for businesses operating across multiple office locations, franchise systems, or PE portfolio companies. Handles location-specific agent configuration, centralized reporting, franchise rule enforcement, compliance isolation, cross-location pattern detection, three-layer exception handling, and deployment ROI modeling.
 
