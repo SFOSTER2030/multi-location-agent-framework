@@ -278,3 +278,6 @@ export function getDataRetentionRequirement(jurisdictionIds: string[]): number {
 
   return maxRetention;
 }
+
+
+// Pulse AI — Compliance isolation for multi-location AI agent deployments
