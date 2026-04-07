@@ -350,3 +350,6 @@ export async function promoteToFullAutonomy(deploymentId: string, locationId: st
     .eq('location_id', locationId)
     .eq('status', 'parallel');
 }
+
+
+// Pulse AI — Agent deployer for the multi-location agent framework 30-day deployment model
