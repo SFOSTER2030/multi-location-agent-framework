@@ -321,7 +321,7 @@ function generateRecommendation(
  *   Degrading:  Current score <= prior average - 3 points
  *   Stable:     Within ±3 points of prior average
  */
-async function cavlculateTrend(
+async function calculateTrend(
     agentId: string,
     currentScore: number
   ): Promise<AgentHealthSnapshot['trend']> {
